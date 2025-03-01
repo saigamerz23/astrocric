@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <title>JW Player</title> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script> 
+  <style> 
+    body { 
+      margin: 0; 
+      background: #000;
+      font-family: Arial, sans-serif;
+    } 
+    .jwplayer { 
+      position: absolute !important; 
+    } 
+    .jwplayer.jw-flag-aspect-mode { 
+      min-height: 100%; 
+      max-height: 100%; 
+    } 
+    /* Premium Pop-up Styles */
+    #popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.9);
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      border-radius: 10px;
+      display: none;
+      width: 90%;
+      max-width: 400px;
+    }
+    #popup h2 {
+      margin: 0;
+      font-size: 20px;
+      color: gold;
+    }
+    #popup p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    #popup a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: gold;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    #popup a:hover {
+      background: orange;
+    }
+    #closePopup {
+      background: red;
+      color: #fff;
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style> 
+</head> 
+<body> 
+
+  <!-- JW Player Container -->
+  <div id="jwplayerDiv"></div> 
+
+  <!-- Telegram Premium Pop-up -->
+  <div id="popup">
+    <h2>Join Our Telegram Channel</h2>
+    <p>Get premium links & updates instantly!</p>
+    <a href="https://t.me/+26DteEcMPfEwYmI1" target="_blank">Join Now</a>
+    <br>
+    <button id="closePopup">Close</button>
+  </div>
+
+  <script> 
+    // Initialize JW Player
+    jwplayer("jwplayerDiv").setup({ 
+      file: "https://cric.ottcdn.workers.dev/live/fox501.m3u8", 
+      position: 'bottom', 
+      autostart: true, 
+      stretching: "uniform", 
+      width: "100%", 
+      type: "hls"
+    }); 
+
+    // Show Telegram Pop-up after 5 seconds
+    setTimeout(function() {
+      document.getElementById("popup").style.display = "block";
+    }, 5000);
+
+    // Close Pop-up
+    document.getElementById("closePopup").addEventListener("click", function() {
+      document.getElementById("popup").style.display = "none";
+    });
+  </script> 
+
+</body> 
+</html>
